@@ -1,4 +1,4 @@
-# vue-canvas
+# polyglot
 
 ## Project setup
 ```
