@@ -1,4 +1,3 @@
 module.exports = {
-    publicPath: "/polyglot/",
-    outputDir: "dist"
+  publicPath: '/polyglot/'
 }
