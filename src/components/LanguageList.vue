@@ -34,7 +34,7 @@ data() {
 .list-box {
     border: 2px solid rgb(221, 55, 199);
     padding: 20px;
-    font-size: 3rem;
+    font-size: 2rem;
     border-radius: 5px;
     cursor: pointer;
     font-weight: 600;
