@@ -1,28 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Test msg="Welcome to Your Vue.js App"/>
+    <Main msg="Welcome to Polyglot"/>
   </div>
 </template>
 
 <script>
-import Test from './components/Test.vue'
+import Main from './components/Main.vue'
 
 export default {
   name: 'app',
   components: {
-    Test
+    Main
   }
 }
 </script>
 
 <style>
+* {
+  margin: 0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: rgb(221, 55, 199);
+  margin: 0;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.728);
+  height: 100vh;
+  box-shadow: rgb(241, 239, 239) 0px 5px 15px;
 }
 </style>
