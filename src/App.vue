@@ -20,12 +20,14 @@ export default {
 },
   data() {
     return {
-      baseUrl: process.env.VUE_APP_BASE_URL,
+      // eslint-disable-next-line 
+      baseUrl: windows ? 'https://www.danafng.com/polyglot/' : process.env.VUE_APP_BASE_URL,
     }
   },
   methods: {
   fetchData(){
      axios.get(this.baseUrl + 'test.json').then(response => {
+       // eslint-disable-next-line 
         console.log(response);
      })
   }
