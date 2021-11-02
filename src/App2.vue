@@ -5,31 +5,13 @@
 </template>
 
 <script>
-import axios from 'axios';
 import Main from './components/Main.vue'
-
 
 export default {
   name: 'app',
   components: {
     Main
-  },
-  created(){
-    // Fetch Data
-    this.fetchData();
-},
-  data() {
-    return {
-      baseUrl: process.env.VUE_APP_BASE_URL,
-    }
-  },
-  methods: {
-  fetchData(){
-     axios.get(this.baseUrl + 'test.json').then(response => {
-        console.log(response);
-     })
   }
-}
 }
 </script>
 

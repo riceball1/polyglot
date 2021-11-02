@@ -1,0 +1,5 @@
+Building Polyglot Site
+
+
+## Some processing ideas
+- Design a structure that can be replicated easily for multiple languages
