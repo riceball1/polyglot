@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       // eslint-disable-next-line 
-      baseUrl: windows ? 'https://www.danafng.com/polyglot/' : process.env.VUE_APP_BASE_URL,
+      baseUrl: window.location.href,
     }
   },
   methods: {
