@@ -1,0 +1,20 @@
+{
+  "languages": [
+    {
+      "name": "हिंदी",
+      "enable": true
+    },
+    {
+      "name": "Türkçe",
+      "enable": false
+    },
+    {
+      "name": "Español",
+      "enable": false
+    },
+    {
+      "name": "Português",
+      "enable": false
+    }
+  ]
+}

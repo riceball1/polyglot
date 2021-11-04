@@ -21,6 +21,11 @@ export default {
   },
   components: {
     LanguageList
+  },
+  methods: {
+    showLanguageContent(){
+      return true;
+    }
   }
 }
 </script>

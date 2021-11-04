@@ -1,18 +1,31 @@
 <template>
   <div class="list">
     <div v-for="(language, index) in languages" :key="index">
-      <div class="list-box">{{ language }}</div>
+      <button class="list-box">{{ language.name }}</button>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "LanguageList",
+  created() {
+    this.fetchData();
+  },
   data() {
     return {
-      languages: ["हिंदी", "Türkçe", "Español", "Português"],
+      baseUrl: window.location.href,
+      languages: [],
     };
+  },
+  methods: {
+    fetchData() {
+      axios.get(this.baseUrl + "data.json").then((response) => {
+        this.languages = response.data["languages"];
+      });
+    },
   },
 };
 </script>
@@ -22,22 +35,27 @@ export default {
 .list {
   margin: 20px auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  align-content: center;
   flex-wrap: wrap;
 }
 .list-box {
-  border: 2px solid rgb(221, 55, 199);
+  background-color: rgb(221, 55, 199);
+  border: 2px solid #fff;
   padding: 20px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 600;
   margin: 5px;
+  width: 200px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .list-box:hover {
-  background-color: rgb(221, 55, 199);
-  border: 2px solid #fff;
+  border: 2px solid rgb(221, 55, 199);
   color: #fff;
 }
 </style>

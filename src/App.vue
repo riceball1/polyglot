@@ -1,38 +1,18 @@
 <template>
   <div id="app">
-    <Main msg="Welcome to Polyglot"/>
+    <Main msg="Welcome to Polyglot" />
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import Main from './components/Main.vue'
-
+import Main from "./components/Main.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    Main
-  },
-  created(){
-    // Fetch Data
-    this.fetchData();
-},
-  data() {
-    return {
-      // eslint-disable-next-line 
-      baseUrl: window.location.href,
-    }
-  },
-  methods: {
-  fetchData(){
-     axios.get(this.baseUrl + 'test.json').then(response => {
-       // eslint-disable-next-line 
-        console.log(response);
-     })
+    Main,
   }
-}
-}
+};
 </script>
 
 <style>
@@ -40,7 +20,7 @@ export default {
   margin: 0;
 }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
