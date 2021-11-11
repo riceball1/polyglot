@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{msg}}</h1>
+    <h1>Welcome to Polyglot</h1>
     <div class="subsection">
       <p>👋 Welcome to polyglot! A free site with a collection of languages learning material.</p>
       </div>
@@ -11,14 +11,10 @@
 </template>
 
 <script>
-import LanguageList from './LanguageList.vue';
-
+import LanguageList from '../components/LanguageList.vue';
 
 export default {
   name: 'Main',
-  props: {
-    msg: String
-  },
   components: {
     LanguageList
   },

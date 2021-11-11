@@ -1,7 +1,7 @@
 <template>
   <div class="list">
     <div v-for="(language, index) in languages" :key="index">
-      <button class="list-box">{{ language.name }}</button>
+      <button class="list-box" v-on:click="handleLanguageRoute(language)">{{ language.name }}</button>
     </div>
   </div>
 </template>
@@ -26,6 +26,13 @@ export default {
         this.languages = response.data["languages"];
       });
     },
+    handleLanguageRoute: function (language) {
+      if(!language.enable) {
+        alert(`${language.name} is not yet enabled`)
+      } else {
+        window.location.href = `${this.baseUrl}${language.linkName}`
+      }
+    }
   },
 };
 </script>

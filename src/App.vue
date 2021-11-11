@@ -1,17 +1,15 @@
 <template>
   <div id="app">
-    <Main msg="Welcome to Polyglot" />
+    <router-view>
+    <router-link to="/hindi">Hindi</router-link>
+    </router-view>
   </div>
 </template>
 
 <script>
-import Main from "./components/Main.vue";
 
 export default {
   name: "app",
-  components: {
-    Main,
-  }
 };
 </script>
 
