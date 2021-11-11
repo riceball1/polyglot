@@ -1,7 +1,7 @@
 <template>
   <div class="list">
     <div v-for="(language, index) in languages" :key="index">
-      <button class="list-box" v-on:click="handleLanguageRoute(language)">{{ language.name }}</button>
+      <button class="list-box" v-on:click="handleLanguageClick(language)" v-if="language.enable">{{ language.name }}</button>
     </div>
   </div>
 </template>
@@ -11,6 +11,10 @@ import axios from "axios";
 
 export default {
   name: "LanguageList",
+  props: {
+    handleLanguageRoute: {type: Function},
+    activeLanguage: {type: String},
+  },
   created() {
     this.fetchData();
   },
@@ -26,12 +30,8 @@ export default {
         this.languages = response.data["languages"];
       });
     },
-    handleLanguageRoute: function (language) {
-      if(!language.enable) {
-        alert(`${language.name} is not yet enabled`)
-      } else {
-        window.location.href = `${this.baseUrl}${language.linkName}`
-      }
+    handleLanguageClick(language) {
+      this.$emit('handleLanguageRoute', language)
     }
   },
 };
