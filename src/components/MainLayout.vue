@@ -51,7 +51,7 @@ export default {
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 0.2fr 1fr;
+  grid-template-rows: 0.15fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
     "nav nav"
