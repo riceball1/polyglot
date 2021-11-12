@@ -9,9 +9,9 @@
         {{ language }}
 
         <ul class="sublangauge-menu" v-if="activeLanguage == language">
-           <li>{{language}} lesson</li>
-           <li>{{language}} lesson</li>
-           <li>{{language}} lesson</li>
+          <li>{{ language }} lesson</li>
+          <li>{{ language }} lesson</li>
+          <li>{{ language }} lesson</li>
         </ul>
       </div>
     </div>
@@ -53,18 +53,17 @@ export default {
 }
 
 .active {
-  background-color: #fff;
+  background-color: #42b983;
   color: #0c1013;
 }
 
 .menu-item:hover {
-  background-color: #42b983;
-  color: #0c1013;
+  color: #fff;
 }
 .sublangauge-menu {
-    font-size: 1rem;
-    background-color: rgb(66, 63, 63);
-    color: #0c1013;
-    font-weight: 300;
+  font-size: 1rem;
+  background-color: rgb(66, 63, 63);
+  color: #0c1013;
+  font-weight: 300;
 }
 </style>
