@@ -30,9 +30,13 @@ export default {
   },
   methods: {
     displayLanguageMenu: function (languageName) {
-      // sets submenu for active language
-      this.currentLanguageMenu = languageName;
-      this.activeLanguage = languageName;
+      if (this.activeLanguage === languageName) {
+        this.activeLanguage = "";
+      } else {
+        // sets submenu for active language
+        this.currentLanguageMenu = languageName;
+        this.activeLanguage = languageName;
+      }
     },
   },
 };
