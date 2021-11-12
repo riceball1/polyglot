@@ -15,6 +15,10 @@
         </ul>
       </div>
     </div>
+    <footer class="footer">
+      copyright © 2021
+      <a href="https://github.com/riceball1/polyglot">riceball</a>
+    </footer>
   </div>
 </template>
 
@@ -26,6 +30,7 @@ export default {
       languages: ["hindi", "spanish", "turkish"],
       currentLanguageMenu: "",
       activeLanguage: "",
+      handleActiveLanguage: { type: Function },
     };
   },
   methods: {
@@ -37,6 +42,7 @@ export default {
         this.currentLanguageMenu = languageName;
         this.activeLanguage = languageName;
       }
+      this.$emit("handleActiveLanguage", this.activeLanguage);
     },
   },
 };
@@ -69,5 +75,13 @@ export default {
   background-color: rgb(66, 63, 63);
   color: #0c1013;
   font-weight: 300;
+}
+.footer {
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  margin: 10px auto;
+  width: 20%;
+  background-color: transparent;
 }
 </style>
