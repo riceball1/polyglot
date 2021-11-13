@@ -14,7 +14,7 @@
             v-for="lesson in language.lessons"
             :key="lesson"
           >
-            <li v-on:click="displayLesson(lesson.lessonIndex)">
+            <li v-on:click="displayLesson(lesson.lessonIndex)" v-bind:class="{ activeLesson: currentLessonIndex == lesson.lessonIndex }">
               {{ lesson.lessonName }}
             </li>
           </ul>
@@ -37,11 +37,12 @@ export default {
         {
           name: "hindi",
           lessons: [
-            { lessonIndex: 1, lessonName: "Hindi Intro" },
-            { lessonIndex: 2, lessonName: "Hindi Alphabet" },
+            { lessonIndex: 1, lessonName: "Intro" },
+            { lessonIndex: 2, lessonName: "Alphabet" },
           ],
         },
       ],
+      currentLessonIndex: 1,
       selectedLanguage: "",
       handleActiveLanguage: { type: Function },
       handleDisplayLesson: { type: Function },
@@ -54,6 +55,7 @@ export default {
     displayLanguageMenu: function (languageName) {
       if(languageName === this.selectedLanguage) {
           this.selectedLanguage = ""
+          this.currentLessonIndex = 1;
       } else {
           this.selectedLanguage = languageName;
       }
@@ -61,6 +63,7 @@ export default {
       this.$emit("handleActiveLanguage", this.selectedLanguage);
     },
     displayLesson: function (lessonIndex) {
+        this.currentLessonIndex = lessonIndex;
       this.$emit("handleDisplayLesson", lessonIndex);
     },
   },
@@ -89,13 +92,16 @@ export default {
   color: #0c1013;
 }
 
+.activeLesson {
+    background-color: #fff;
+}
+
 .menu-item h3:hover {
   color: #fff;
 }
 .sublangauge-menu, li {
   font-size: 1.5rem;
-  background-color: #fff;
-  color: #0c1013;
+  color: #42b983;
   font-weight: 400;
   margin: 0;
   cursor: pointer;
@@ -115,7 +121,7 @@ export default {
 }
 
 @media only screen and (max-width: 600px) {
-  .menu-item {
+  .menu-item h3 {
     font-size: 1rem;
   }
 
@@ -124,7 +130,7 @@ export default {
     font-size: 0.8rem;
   }
 
-  .sublangauge-menu {
+  .sublangauge-menu > li {
     font-size: 0.8rem;
   }
 }

@@ -1,12 +1,12 @@
 <template>
   <div class="lesson-container">
-      Turkish Lesson Two Page
+      Turkish Lesson One Page
   </div>
 </template>
 
 <script>
 export default {
-  name: "TurkishLessonTwo",
+  name: "TurkishLessonOne",
   props: {
       currentLanguage: {type: String},
   },
