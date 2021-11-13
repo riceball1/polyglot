@@ -41,6 +41,13 @@ export default {
             { lessonIndex: 2, lessonName: "Alphabet" },
           ],
         },
+        {
+          name: "turkish",
+          lessons: [
+            { lessonIndex: 1, lessonName: "Intro" },
+            { lessonIndex: 2, lessonName: "Alphabet" },
+          ],
+        },
       ],
       currentLessonIndex: 1,
       selectedLanguage: "",
