@@ -62,6 +62,9 @@ export default {
   font-weight: 600;
 }
 
+
+
+
 .active {
   background-color: #42b983;
   color: #0c1013;
@@ -83,5 +86,20 @@ export default {
   margin: 10px auto;
   width: 20%;
   background-color: transparent;
+}
+
+@media only screen and (max-width: 600px) {
+  .menu-item {
+    font-size: 1rem;
+  }
+
+  .footer {
+      width: 100%;
+      font-size: .8rem;
+  }
+
+  .sublangauge-menu {
+      font-size: 0.8rem;
+  }
 }
 </style>
