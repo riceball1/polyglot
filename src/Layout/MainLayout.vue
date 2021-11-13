@@ -16,8 +16,11 @@
       <div class="display">
         <div v-if="!activeLanguage">
           <h3>Welcome to the Polyglot Website!</h3>
-          <p> This is a free website that shares lessons on a few languages of the world. This site is built using vue framework as a way to help me practice both my languages and working on basic web development architecture. Hope you enjoy the contents of the this site. And feel free to connect with me on LinkedIn if you have any feedback for this site.
-            </p>
+          <p> This is a free website that shares lessons on a few languages of the world. 
+          </p>
+          <p>This site is built using vue framework. I created this site to both help me combine my passion for language learning and web development.</p>
+          
+          <p> I hope you enjoy the contents of the this site. This is continuously evolving site, always updating to bring the best content and user experience. Enjoy!!</p>
           </div>
         <LanguageViews v-bind:languageToShow="activeLanguage" v-else-if="activeLanguage" v-bind:lessonToDisplay="lessonIndex"/>
     
