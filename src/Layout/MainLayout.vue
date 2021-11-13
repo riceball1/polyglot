@@ -25,15 +25,11 @@
             world.
           </p>
           <p>
-            This site is built using vue framework. I created this site to both
-            help me combine my passion for language learning and web
-            development.
+            This site is built using vue framework. This site combines my passion for language learning and web development.
           </p>
 
           <p>
-            I hope you enjoy the contents of the this site. This is continuously
-            evolving site, always updating to bring the best content and user
-            experience. Enjoy!!
+            Hope everyone enjoy the contents of the this site. This is continuously a evolving project. Enjoy!!
           </p>
         </div>
         <LanguageViews
