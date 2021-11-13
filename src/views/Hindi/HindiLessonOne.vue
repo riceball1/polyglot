@@ -1,8 +1,8 @@
 <template>
   <div class="lesson-container">
       <h3>Lesson One: Introduction</h3>
-      <p>Welcome to the first lesson, an introduction to Hindi.</p>
-      <p>Hindi </p>
+      <p>Hindi is one of the many national languages in India. Hindi is related to Urdu, which shares nearly identical grammar and a substantial amount of vocabulary.</p>
+      <p>However, unlike Urdu, Hindi is written using the Devanagari script.</p>
 
   </div>
 </template>
