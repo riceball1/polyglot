@@ -11,21 +11,36 @@
 
     <div class="content">
       <div class="left" v-if="menuEnabled">
-        <Menu @handleActiveLanguage="setActiveLanguage" @handleDisplayLesson="setDisplayLesson" v-bind:activeLanguage="activeLanguage"/>
+        <Menu
+          @handleActiveLanguage="setActiveLanguage"
+          @handleDisplayLesson="setDisplayLesson"
+          v-bind:activeLanguage="activeLanguage"
+        />
       </div>
       <div class="display">
-        <div v-if="!activeLanguage">
+        <div v-if="activeLanguage.length < 1">
           <h3>Welcome to the Polyglot Website!</h3>
-          <p> This is a free website that shares lessons on a few languages of the world. 
+          <p>
+            This is a free website that shares lessons on a few languages of the
+            world.
           </p>
-          <p>This site is built using vue framework. I created this site to both help me combine my passion for language learning and web development.</p>
-          
-          <p> I hope you enjoy the contents of the this site. This is continuously evolving site, always updating to bring the best content and user experience. Enjoy!!</p>
-          </div>
-        <LanguageViews v-bind:languageToShow="activeLanguage" v-else-if="activeLanguage" v-bind:lessonToDisplay="lessonIndex"/>
-    
+          <p>
+            This site is built using vue framework. I created this site to both
+            help me combine my passion for language learning and web
+            development.
+          </p>
 
-        
+          <p>
+            I hope you enjoy the contents of the this site. This is continuously
+            evolving site, always updating to bring the best content and user
+            experience. Enjoy!!
+          </p>
+        </div>
+        <LanguageViews
+          v-else-if="activeLanguage.length > 1"
+          v-bind:languageToShow="activeLanguage"
+          v-bind:lessonToDisplay="lessonIndex"
+        />
       </div>
     </div>
   </div>
@@ -33,14 +48,14 @@
 
 <script>
 import Menu from "../components/Menu.vue";
-import LanguageViews from '../views/LanguageViews.vue';
+import LanguageViews from "../views/LanguageViews.vue";
 
 export default {
   name: "MainLayout",
   data() {
     return {
       menuEnabled: true,
-      activeLanguage: " ",
+      activeLanguage: "",
       lessonIndex: 1, // default to the first lesson
     };
   },
@@ -52,16 +67,18 @@ export default {
     toggleMenu: function () {
       this.menuEnabled = !this.menuEnabled;
     },
-    setActiveLanguage: function(language) {
-      if(!language) {
+    setActiveLanguage: function (language) {
+      if (!language) {
         // reset lessonIndex when no active language
         this.lessonIndex = 1;
+        this.activeLanguage = "";
+      } else {
+        this.activeLanguage = language;
       }
-      this.activeLanguage = language;
     },
-    setDisplayLesson: function(lessonIndex) {
-      this.lessonIndex = lessonIndex
-    }
+    setDisplayLesson: function (lessonIndex) {
+      this.lessonIndex = lessonIndex;
+    },
   },
 };
 </script>
@@ -98,8 +115,6 @@ export default {
   width: 100%;
   height: 100vh;
 }
-
-
 
 .display {
   width: 100%;
