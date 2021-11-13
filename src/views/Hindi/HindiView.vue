@@ -1,25 +1,23 @@
 <template>
+
   <div>
-    <HindiLessonOne v-if="currentLesson == 'hindi lesson 1'" />
+    <HindiLessonOne v-if="lesson == 1" />
+    <HindiLessonTwo v-if="lesson == 2" />
   </div>
 </template>
 
 <script>
 import HindiLessonOne from "./HindiLessonOne.vue";
-
+import HindiLessonTwo from "./HindiLessonTwo.vue";
 export default {
   name: "HindiView",
   props: {
-    currentLanguage: { type: String },
-    currentLesson: { type: String },
+    lesson: { type: Number },
   },
   components: {
     HindiLessonOne,
+    HindiLessonTwo,
   },
-  data() {
-    return {};
-  },
-  methods: {},
 };
 </script>
 

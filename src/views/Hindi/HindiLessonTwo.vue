@@ -1,8 +1,9 @@
+
 <template>
+<!-- Hindi Alphabet --> 
   <div class="lesson-container">
-      <h3>Lesson One: Introduction</h3>
-      <p>Welcome to the first lesson, an introduction to Hindi.</p>
-      <p>Hindi </p>
+      <h3>Lesson Two: Alphabet</h3>
+      <p>This second lesson in Hindi will focus on the Alphabet: vowels and consonants. As well as an introduction to the written script: devanagari</p>
 
   </div>
 </template>

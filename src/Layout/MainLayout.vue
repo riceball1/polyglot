@@ -11,11 +11,16 @@
 
     <div class="content">
       <div class="left" v-if="menuEnabled">
-        <Menu @handleActiveLanguage="setActiveLanguage" />
+        <Menu @handleActiveLanguage="setActiveLanguage" @handleDisplayLesson="setDisplayLesson" v-bind:activeLanguage="activeLanguage"/>
       </div>
       <div class="display">
-        <p v-if="!activeLanguage">Language lessons are coming!</p>
-        <LanguageViews v-bind:languageToShow="activeLanguage" v-else-if="activeLanguage" />
+        <div v-if="!activeLanguage">
+          <h3>Welcome to the Polyglot Website!</h3>
+          <p> This is a free website that shares lessons on a few languages of the world. This site is built using vue framework as a way to help me practice both my languages and working on basic web development architecture. Hope you enjoy the contents of the this site. And feel free to connect with me on LinkedIn if you have any feedback for this site.
+            </p>
+          </div>
+        <LanguageViews v-bind:languageToShow="activeLanguage" v-else-if="activeLanguage" v-bind:lessonToDisplay="lessonIndex"/>
+    
 
         
       </div>
@@ -32,7 +37,8 @@ export default {
   data() {
     return {
       menuEnabled: true,
-      activeLanguage: '',
+      activeLanguage: " ",
+      lessonIndex: 1, // default to the first lesson
     };
   },
   components: {
@@ -44,7 +50,14 @@ export default {
       this.menuEnabled = !this.menuEnabled;
     },
     setActiveLanguage: function(language) {
+      if(!language) {
+        // reset lessonIndex when no active language
+        this.lessonIndex = 1;
+      }
       this.activeLanguage = language;
+    },
+    setDisplayLesson: function(lessonIndex) {
+      this.lessonIndex = lessonIndex
     }
   },
 };

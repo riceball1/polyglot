@@ -1,0 +1,22 @@
+body, * {
+    background-color: #0c1013;
+    color: #42b983;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3 {
+      text-align: center;
+  }
+
+.lesson-container, p, h2 {
+    color: #fff;
+    width: 80%;
+    margin: 10px auto;
+}

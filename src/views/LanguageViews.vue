@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <h2>{{ languageToShow.toUpperCase() }}</h2>
-    <HindiView v-if="languageToShow === 'hindi'" />
-    <TurkishView v-if="languageToShow === 'turkish'" />
+  <div class="language-view">
+    <h2 class="language-title">{{ languageToShow.toUpperCase() }}</h2>
+    <HindiView v-if="languageToShow === 'hindi'" v-bind:lesson="lessonToDisplay" />
+    <TurkishView v-if="languageToShow === 'turkish'" v-bind:lesson="lessonToDisplay"/>
   </div>
 </template>
 
@@ -14,6 +14,7 @@ export default {
   name: "LanguageViews",
   props: {
     languageToShow: { type: String },
+    lessonToDisplay: {type: Number},
   },
   components: {
     HindiView,
@@ -22,5 +23,9 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style>
+.language-title {
+    color: #42b983;
+}
+
+</style>

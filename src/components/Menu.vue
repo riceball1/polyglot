@@ -3,16 +3,22 @@
     <div v-for="language in languages" :key="language">
       <div
         class="menu-item"
-        v-bind:class="{ active: activeLanguage == language }"
-        v-on:click="displayLanguageMenu(language)"
+        v-bind:class="{ active: activeLanguage == language.name }"
       >
-        {{ language }}
-
-        <ul class="sublangauge-menu" v-if="activeLanguage == language">
-          <li>{{ language }} lesson</li>
-          <li>{{ language }} lesson</li>
-          <li>{{ language }} lesson</li>
-        </ul>
+        <h3 v-on:click="displayLanguageMenu(language.name)">
+          {{ language.name }}
+        </h3>
+        <div v-if="selectedLanguage == language.name">
+          <ul
+            class="sublangauge-menu"
+            v-for="lesson in language.lessons"
+            :key="lesson"
+          >
+            <li v-on:click="displayLesson(lesson.lessonIndex)">
+              {{ lesson.lessonName }}
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <footer class="footer">
@@ -27,22 +33,35 @@ export default {
   name: "Menu",
   data() {
     return {
-      languages: ["hindi", "spanish", "turkish"],
-      currentLanguageMenu: "",
-      activeLanguage: "",
+      languages: [
+        {
+          name: "hindi",
+          lessons: [
+            { lessonIndex: 1, lessonName: "Hindi Intro" },
+            { lessonIndex: 2, lessonName: "Hindi Alphabet" },
+          ],
+        },
+      ],
+      selectedLanguage: "",
       handleActiveLanguage: { type: Function },
+      handleDisplayLesson: { type: Function },
     };
+  },
+  props: {
+    activeLanguage: { type: String },
   },
   methods: {
     displayLanguageMenu: function (languageName) {
-      if (this.activeLanguage === languageName) {
-        this.activeLanguage = "";
+      if(languageName === this.selectedLanguage) {
+          this.selectedLanguage = ""
       } else {
-        // sets submenu for active language
-        this.currentLanguageMenu = languageName;
-        this.activeLanguage = languageName;
+          this.selectedLanguage = languageName;
       }
-      this.$emit("handleActiveLanguage", this.activeLanguage);
+
+      this.$emit("handleActiveLanguage", this.selectedLanguage);
+    },
+    displayLesson: function (lessonIndex) {
+      this.$emit("handleDisplayLesson", lessonIndex);
     },
   },
 };
@@ -52,32 +71,39 @@ export default {
 <style scoped>
 #menu {
   flex: 1 0 auto;
+  text-align: center;
+  margin: 0;
 }
-.menu-item {
+.menu-item h3 {
   color: #42b983;
   font-size: 2rem;
   width: 100%;
   cursor: pointer;
   margin: 10px auto;
   font-weight: 600;
+  margin-bottom: 0;
 }
 
-
-
-
-.active {
+.active h3 {
   background-color: #42b983;
   color: #0c1013;
 }
 
-.menu-item:hover {
+.menu-item h3:hover {
   color: #fff;
 }
-.sublangauge-menu {
-  font-size: 1rem;
-  background-color: rgb(66, 63, 63);
+.sublangauge-menu, li {
+  font-size: 1.5rem;
+  background-color: #fff;
   color: #0c1013;
-  font-weight: 300;
+  font-weight: 400;
+  margin: 0;
+  cursor: pointer;
+}
+
+.sublangauge-menu li:hover{
+    background-color: #42b983;
+    color: #fff;
 }
 .footer {
   position: fixed;
@@ -94,12 +120,12 @@ export default {
   }
 
   .footer {
-      width: 100%;
-      font-size: .8rem;
+    width: 100%;
+    font-size: 0.8rem;
   }
 
   .sublangauge-menu {
-      font-size: 0.8rem;
+    font-size: 0.8rem;
   }
 }
 </style>
