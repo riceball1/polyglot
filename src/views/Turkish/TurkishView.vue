@@ -1,19 +1,22 @@
 <template>
   <div>
-      <TurkishLessonOne />
+      <TurkishLessonOne v-if="lesson == 1" />
+      <TurkishLessonTwo v-if="lesson == 2"/>
   </div>
 </template>
 
 <script>
 import TurkishLessonOne from './TurkishLessonOne.vue';
+import TurkishLessonTwo from './TurkishLessonTwo.vue';
 
 export default {
   name: "TurkishView",
-  props: {
-      currentLanguage: {type: String},
+    props: {
+    lesson: { type: Number },
   },
   components: {
       TurkishLessonOne,
+      TurkishLessonTwo,
   },
   data() {
     return {

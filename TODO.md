@@ -10,3 +10,5 @@
 - [ ] Create lesson 2 for Turkish Alphabet
 
 - [ ] Create lesson 2 for Hindi Alphabet
+
+- [ ] When switching languages should reset the lesson to 1 if it's not already

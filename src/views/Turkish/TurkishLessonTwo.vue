@@ -1,6 +1,7 @@
 <template>
   <div class="lesson-container">
-      Turkish Lesson One Page
+      <h3>Lesson Two: Turkish Alphabet -- Vowels and Consonants</h3>
+      <p>The Turkish alphabet also called Türk alfabesi in Turkish contains 29 letters.</p>
   </div>
 </template>
 
